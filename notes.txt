@@ -1,0 +1,79 @@
+Setting app a frontend in angular. 
+
+
+Installing PWA (progressive web app) 
+
+"npx ng add @angular/pwa"
+
+
+@Component({}) structure:
+  - selector: the HTML tag used to render the component (e.g. 'app-root' -> <app-root></app-root>)
+  - standalone: true means the component imports its own dependencies (no NgModule needed!)
+  - imports: list of other components, directives, or pipes used in this component's template
+  - templateUrl / styleUrl: paths to the external HTML structure and SCSS styles
+  
+  Example:
+  @Component({
+    selector: 'app-root',
+    standalone: true,
+    imports: [DecimalPipe, RouterOutlet],
+    templateUrl: './app.html',
+    styleUrl: './app.scss',
+  })
+
+
+signal<>() is the useState version:
+  - Read value: count()   (always call it as a function!)
+  - Set value:  count.set(5)
+  - Update value: count.update(val => val + 1)
+  
+  computed() is the useMemo version (Derived/Memoized state):
+    - doubleCount = computed(() => count() * 2)   (auto-tracks count and recalculates when it changes)
+  
+  effect() is the useEffect version (Side Effect):
+    - Runs automatically whenever any signal inside it changes:
+      effect(() => {
+        localStorage.setItem('key', JSON.stringify(items()));
+      });
+
+
+Props & Callbacks (Component communication):
+  - Optional Input: name = input<string>('Default Name')
+  - Required Input: name = input.required<string>()   (must be passed by parent, otherwise compiler errors)
+  - Emit output:   itemDeleted = output<string>()     (the callback event emitter)
+  - Trigger output: this.itemDeleted.emit("some-uid")
+
+
+Services & Dependency Injection:
+  - Shared State (like Context/Zustand): Create a Service with `@Injectable({ providedIn: 'root' })` so it is a singleton
+  - Access Service: private crudService = inject(CrudService)   (inject() retrieves the singleton instance of the service)
+
+
+Lifecycle Hooks:
+  - OnInit (useEffect with [] deps): Runs once after the component is initialized.
+    
+    export class MyComponent implements OnInit {
+      ngOnInit() {
+        console.log('Component mounted!');
+      }
+    }
+
+
+Template Bindings:
+  - Property Binding (into HTML):  [value]="name()"
+  - Event Binding (out of HTML):   (click)="increment()"
+  - Interpolation (displays text):  {{ title }}
+
+
+Control Flow:
+  - If/Else:
+    @if (count() > 0) {
+      <p>Positive</p>
+    } @else {
+      <p>Zero</p>
+    }
+
+  - For Loop (track is like the React "key"):
+    @for (item of items(); track item.random_uid) {
+      <p>{{ item.name }}</p>
+    }

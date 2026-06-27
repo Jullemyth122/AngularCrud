@@ -1,0 +1,112 @@
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+}
+.card h2 {
+  margin-top: 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 10px;
+}
+p {
+  color: #475569;
+  line-height: 1.6;
+}
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.parent-state-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  background: #f8fafc;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.parent-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #0284c7;
+  color: white;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.parent-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #94a3b8;
+  border: 2px dashed #e2e8f0;
+  border-radius: 6px;
+  padding: 20px;
+  font-size: 0.95rem;
+}
+.result-card {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+.result-card p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+.message-quote {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: #f1f5f9;
+  border-left: 3px solid #64748b;
+  font-style: italic;
+  color: #334155;
+}
+.status-alert {
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 15px;
+}

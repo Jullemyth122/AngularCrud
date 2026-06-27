@@ -1,0 +1,19 @@
+<div class="page-container">
+  <header class="page-header">
+    <h1>CRUD Application</h1>
+    <p class="subtitle">Demonstrating modern Angular state mutations using Signals & Services</p>
+  </header>
+
+  <div class="crud-layout">
+    <!-- Left Panel: Create Form -->
+    <div class="form-panel">
+      <create-item
+        [createItem]="'Create New Item'"
+        (formSubmit)="onItemCreated($event)"
+      ></create-item>
+    </div>
+
+    <!-- Right Panel: Read List Component -->
+    <read-list [items]="items()" (deleteItem)="onDeleteItem($event)" (updateItem)="onItemUpdated($event)"></read-list>
+  </div>
+</div>

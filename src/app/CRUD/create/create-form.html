@@ -1,0 +1,78 @@
+<div class="create-card">
+  <span class="badge">Create Operation</span>
+  <h3>{{ createItem() }}</h3>
+  <p class="create-desc">
+    Fill out the form below. The system automatically creates a unique ID for the new item.
+  </p>
+
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="item-uid">Auto-Generated UID</label>
+      <div class="uid-input-group">
+        <input
+          id="item-uid"
+          type="text"
+          class="form-control read-only"
+          [value]="generatedUid()"
+          readonly
+        />
+        <button type="button" class="btn btn-secondary btn-icon" (click)="regenerateUid()" title="Regenerate UID">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon">
+            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.72 2.78L21 8"></path>
+            <polyline points="21 3 21 8 16 8"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="item-name">Full Name</label>
+      <input
+        id="item-name"
+        type="text"
+        class="form-control"
+        placeholder="Enter name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="item-email">Email Address</label>
+      <input
+        id="item-email"
+        type="email"
+        class="form-control"
+        placeholder="Enter email"
+        required
+      />
+    </div>
+
+    <div class="form-group-row">
+      <div class="form-group age-group">
+        <label for="item-age">Age</label>
+        <input
+          id="item-age"
+          type="number"
+          min="1"
+          max="120"
+          class="form-control"
+          placeholder="Age"
+          required
+        />
+      </div>
+
+      <div class="form-group location-group">
+        <label for="item-location">Location</label>
+        <input
+          id="item-location"
+          type="text"
+          class="form-control"
+          placeholder="City, Country"
+          required
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-submit">Create Item</button>
+  </form>
+</div>

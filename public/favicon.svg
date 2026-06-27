@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background with rounded corners -->
+  <rect width="64" height="64" rx="14" fill="#0f172a"/>
+  <!-- Terminal chevron > -->
+  <polyline points="14,22 26,32 14,42" stroke="#3b82f6" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Cursor underscore _ -->
+  <line x1="30" y1="42" x2="50" y2="42" stroke="#3b82f6" stroke-width="5.5" stroke-linecap="round"/>
+</svg>

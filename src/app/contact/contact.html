@@ -1,0 +1,54 @@
+<div class="page-container">
+  <header class="page-header">
+    <h1>Contact Page</h1>
+    <p class="subtitle">Demonstrating Angular Input/Output (React Props & Callbacks) equivalents</p>
+  </header>
+
+  <div class="card">
+    <h2>
+      Props & Callbacks (React: <code>props</code> &rarr; Angular: <code>input</code> &
+      <code>output</code>)
+    </h2>
+    <p>
+      In React, you pass variables down as props and pass functions down as callback props:
+      <code>&lt;ContactForm title="Get In Touch" onSubmit=&#123;handleCallback&#125; /&gt;</code>.
+      <br /><br />
+      In Angular, we use <strong>property binding</strong>
+      <code>[headerTitle]="'Get In Touch With Me'"</code> to pass inputs, and
+      <strong>event binding</strong> <code>(formSubmit)="onFormSubmitted($event)"</code> to receive
+      callback events.
+    </p>
+
+    <div class="grid-layout">
+      <!-- Child Component Instance -->
+      <app-contact-form
+        [headerTitle]="'Get In Touch With Me'"
+        (formSubmit)="onFormSubmitted($event)"
+      ></app-contact-form>
+
+      <!-- Parent State Display -->
+      <div class="parent-state-box">
+        <span class="badge parent-badge">Parent Component</span>
+        <h3>Received Callback Data</h3>
+        <p class="parent-desc">This section displays state maintained in the parent component.</p>
+
+        @if (submissionData(); as data) {
+          <div class="result-card">
+            <p><strong>Name:</strong> {{ data.name }}</p>
+            <p><strong>Email:</strong> {{ data.email }}</p>
+            <p><strong>Message:</strong></p>
+            <blockquote class="message-quote">{{ data.message }}</blockquote>
+            <div class="status-alert">Successfully Received in Parent!</div>
+          </div>
+        } @else {
+          <div class="empty-state">
+            <p>
+              No messages received yet. Submit the form in the child component to trigger the parent
+              callback!
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,12 +1,18 @@
 {
-  "name": "frontend",
+  "name": "exe",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "desktop": "electron .",
+    "build:desktop": "ng build && electron .",
+    "desktop:edge": "start msedge --app=http://localhost:4200",
+    "desktop:chrome": "start chrome --app=http://localhost:4200",
+    "desktop:brave": "start brave --app=http://localhost:4200"
   },
   "private": true,
   "packageManager": "npm@8.4.0",
@@ -17,6 +23,7 @@
     "@angular/forms": "^22.0.0",
     "@angular/platform-browser": "^22.0.0",
     "@angular/router": "^22.0.0",
+    "@angular/service-worker": "^22.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -24,6 +31,7 @@
     "@angular/build": "^22.0.4",
     "@angular/cli": "^22.0.4",
     "@angular/compiler-cli": "^22.0.0",
+    "electron": "^42.5.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
