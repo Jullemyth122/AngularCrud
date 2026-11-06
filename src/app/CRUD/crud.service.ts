@@ -9,7 +9,7 @@ export interface Item {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CrudService {
   private STORAGE_KEY = 'angular_crud_items';
@@ -37,15 +37,15 @@ export class CrudService {
           email: 'jane@example.com',
           age: 28,
           random_uid: 'uid-8f3a9d2c',
-          location: 'San Francisco, CA'
+          location: 'San Francisco, CA',
         },
         {
           name: 'John Smith',
           email: 'john.smith@example.com',
           age: 34,
           random_uid: 'uid-4b2c1e5a',
-          location: 'New York, NY'
-        }
+          location: 'New York, NY',
+        },
       ]);
     }
 
@@ -56,20 +56,16 @@ export class CrudService {
   }
 
   createItem(newItem: Item) {
-    this.itemsSignal.update(current => [...current, newItem]);
+    this.itemsSignal.update((current) => [...current, newItem]);
   }
 
   updateItem(uid: string, updatedFields: Partial<Item>) {
-    this.itemsSignal.update(current =>
-      current.map(item =>
-        item.random_uid === uid ? { ...item, ...updatedFields } : item
-      )
+    this.itemsSignal.update((current) =>
+      current.map((item) => (item.random_uid === uid ? { ...item, ...updatedFields } : item)),
     );
   }
 
   deleteItem(uid: string) {
-    this.itemsSignal.update(current =>
-      current.filter(item => item.random_uid !== uid)
-    );
+    this.itemsSignal.update((current) => current.filter((item) => item.random_uid !== uid));
   }
 }

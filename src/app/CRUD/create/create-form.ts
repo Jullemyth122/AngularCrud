@@ -8,7 +8,6 @@ import { Component, OnInit, input, output, signal } from '@angular/core';
 })
 export class CreateFormComponent implements OnInit {
   createItem = input<string>('Create A Item');
-
   formSubmit = output<{
     name: string;
     email: string;
@@ -32,7 +31,7 @@ export class CreateFormComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    
+
     const name = (form.querySelector('#item-name') as HTMLInputElement).value;
     const email = (form.querySelector('#item-email') as HTMLInputElement).value;
     const age = Number((form.querySelector('#item-age') as HTMLInputElement).value);
@@ -45,7 +44,7 @@ export class CreateFormComponent implements OnInit {
       email,
       age,
       random_uid,
-      location
+      location,
     });
 
     // Reset the form and generate a new UID for the next entry
